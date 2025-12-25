@@ -1,0 +1,14 @@
+#!/bin/bash
+
+#SBATCH -p bohr-gpu
+#SBATCH --chdir=/home/alumno02/execs/lab6
+#SBATCH -J lab6-extra
+#SBATCH --cpus-per-task=1
+#SBATCH --ntasks=1
+
+module load anaconda/2025.06
+
+ipython matrix-mult-alumno02.ipynb
+
+module unload anaconda/2025.06
+
