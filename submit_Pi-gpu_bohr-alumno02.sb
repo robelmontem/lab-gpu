@@ -1,0 +1,19 @@
+#!/bin/bash
+
+#SBATCH -p bohr-gpu
+#SBATCH --chdir=/home/alumno02/execs/lab6
+#SBATCH -J lab6-3.3
+#SBATCH --cpus-per-task=1
+#SBATCH --ntasks=1
+
+module load anaconda/2025.06
+
+for impacts in $((10**7)) $((10**8)); do
+  echo "#############################################################################"
+  echo "PARA ${impacts} NÚMERO DE ELEMENTOS"
+  echo "#############################################################################"
+  ipython pi-gpu-alumno02.ipynb $impacts
+done
+
+module unload anaconda/2025.06
+
